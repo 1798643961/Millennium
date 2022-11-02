@@ -2,7 +2,7 @@ package tt432.millennium.common.recipes.ingredients;
 
 import com.google.gson.JsonParseException;
 import com.google.gson.annotations.Expose;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -25,7 +25,7 @@ public class EffectIngredient implements Predicate<MobEffectInstance> {
         this.level = level;
         this.duration = duration;
         this.cache = cache;
-        this.effect = cache.getRegistryName().toString();
+        this.effect = cache.getDescriptionId();
     }
 
     @Override
@@ -42,7 +42,7 @@ public class EffectIngredient implements Predicate<MobEffectInstance> {
                 cache = effect;
             }
             else {
-                throw new JsonParseException(new TranslatableComponent("error.EffectIngredient.effect.notfound", this.effect).getString());
+                throw new JsonParseException(Component.translatable("error.EffectIngredient.effect.notfound", this.effect).getString());
             }
         }
     }

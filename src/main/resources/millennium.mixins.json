@@ -2,7 +2,7 @@
   "required": true,
   "minVersion": "0.8",
   "package": "tt432.millennium.mixin",
-  "compatibilityLevel": "JAVA_8",
+  "compatibilityLevel": "JAVA_17",
   "refmap": "millennium.refmap.json",
   "mixins": [
   ],

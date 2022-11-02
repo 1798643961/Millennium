@@ -2,7 +2,6 @@ package tt432.millennium.common.recipes.base;
 
 import net.minecraft.world.Container;
 import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
@@ -18,8 +17,10 @@ import java.util.Set;
 /**
  * @author DustW
  **/
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+//@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class RecipeManager {
+
+    /**
     @SubscribeEvent
     public static void onEvent(RegistryEvent.Register<RecipeSerializer<?>> event) {
         IForgeRegistry<RecipeSerializer<?>> registry = event.getRegistry();
@@ -30,6 +31,7 @@ public class RecipeManager {
             registry.register(baseSerializer);
         });
     }
+     */
 
     public static List<RecipeData<?, ?>> getRecipeClassData() {
         List<ModFileScanData> allScanData = ModList.get().getAllScanData();

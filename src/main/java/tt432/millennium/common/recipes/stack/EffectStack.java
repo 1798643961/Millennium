@@ -2,7 +2,7 @@ package tt432.millennium.common.recipes.stack;
 
 import com.google.gson.JsonParseException;
 import com.google.gson.annotations.Expose;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -32,7 +32,7 @@ public class EffectStack implements Supplier<MobEffectInstance> {
                 cache = () -> new MobEffectInstance(effect, duration, level - 1);
             }
             else {
-                throw new JsonParseException(new TranslatableComponent("error.EffectStack.effect.notfound", this.effect).getString());
+                throw new JsonParseException(Component.translatable("error.EffectStack.effect.notfound", this.effect).getString());
             }
         }
 

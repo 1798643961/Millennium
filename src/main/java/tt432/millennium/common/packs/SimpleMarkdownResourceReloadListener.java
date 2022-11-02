@@ -33,15 +33,16 @@ public abstract class SimpleMarkdownResourceReloadListener extends SimplePrepara
 
     @Override
     protected @NotNull Map<ResourceLocation, String> prepare(ResourceManager pResourceManager, @NotNull ProfilerFiller profiler) {
+        /**
         Map<ResourceLocation, String> map = Maps.newHashMap();
         int i = this.directory.length() + 1;
 
-        for (ResourceLocation resourcelocation : pResourceManager.listResources(this.directory, file -> file.endsWith(PATH_SUFFIX))) {
+        for (ResourceLocation resourcelocation : pResourceManager.listResources(this.directory, file -> file.toLanguageKey(PATH_SUFFIX))) {
             String s = resourcelocation.getPath();
             ResourceLocation name = new ResourceLocation(resourcelocation.getNamespace(), s.substring(i, s.length() - PATH_SUFFIX_LENGTH));
 
-            try (Resource resource = pResourceManager.getResource(resourcelocation)) {
-                try (InputStream inputstream = resource.getInputStream()) {
+            try (Resource resource = pResourceManager.getResource(resourcelocation).get()) {
+                try (InputStream inputstream = resource.open()) {
                     String content = IOUtils.toString(inputstream, StandardCharsets.UTF_8);
                     map.put(name, content);
                 }
@@ -49,7 +50,7 @@ public abstract class SimpleMarkdownResourceReloadListener extends SimplePrepara
                 LOGGER.error("Couldn't parse data file {} from {}", name, resourcelocation);
             }
         }
-
-        return map;
+         */
+        return null;
     }
 }

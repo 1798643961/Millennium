@@ -5,7 +5,6 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraftforge.registries.ForgeRegistryEntry;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import tt432.millennium.util.json.JsonUtils;
@@ -13,9 +12,7 @@ import tt432.millennium.util.json.JsonUtils;
 /**
  * @author DustW
  **/
-public class BaseSerializer<C extends Container, RECIPE extends BaseRecipe<C>>
-        extends ForgeRegistryEntry<RecipeSerializer<?>>
-        implements RecipeSerializer<RECIPE> {
+public class BaseSerializer<C extends Container, RECIPE extends BaseRecipe<C>> implements RecipeSerializer<RECIPE> {
 
     Class<RECIPE> recipeClass;
 
